@@ -1,6 +1,6 @@
 // src/components/HeaderStyles.js
 import styled, { createGlobalStyle } from 'styled-components';
-import { colors } from '../styles/colors';
+import { colors } from './colors';
 import { Link } from 'react-router-dom';
 
 // 전역 스타일 정의

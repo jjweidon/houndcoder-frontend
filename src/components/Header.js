@@ -11,7 +11,7 @@ import {
   Auth,
   AuthButton,
   GlobalStyle,
-} from './HeaderStyles';
+} from '../styles/HeaderStyles';
 
 const HeaderComponent = ({ isLoggedIn, onLogout }) => {
   return (
