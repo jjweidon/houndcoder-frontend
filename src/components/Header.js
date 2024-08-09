@@ -18,11 +18,9 @@ const HeaderComponent = ({ isLoggedIn, onLogout }) => {
     <>
       <GlobalStyle />
       <Header>
-        <Logo>
-          <NavLink to="/">
+        <Logo to="/">
           <LogoImg src="/images/logo1.png" alt="HoundCoder Logo" />
           <LogoImg src="/images/logo2.png" alt="HoundCoder Text Logo" />
-          </NavLink>
         </Logo>
         <Nav>
           <NavUl>
@@ -34,9 +32,9 @@ const HeaderComponent = ({ isLoggedIn, onLogout }) => {
         </Nav>
         <Auth>
           {isLoggedIn ? (
-            <AuthButton onClick={onLogout}>마이페이지</AuthButton>
+            <NavLi><NavLink to="/mypage">마이페이지</NavLink></NavLi>
           ) : (
-            <NavLink to="/login"><AuthButton>로그인</AuthButton></NavLink>
+            <NavLi><NavLink to="/login"><AuthButton>로그인</AuthButton></NavLink></NavLi>
           )}
         </Auth>
       </Header>
