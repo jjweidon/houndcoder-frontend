@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Banner,
   BannerText,
@@ -10,13 +11,16 @@ import {
 
 const Home = () => {
   const bannerTextRef = useRef(null);
+  const location = useLocation(); // 현재 경로를 가져옵니다
 
   useEffect(() => {
-    // 컴포넌트가 렌더링되면 'visible' 클래스 추가
+    // 페이지가 이동할 때마다 애니메이션을 트리거합니다
     if (bannerTextRef.current) {
-      bannerTextRef.current.classList.add('visible');
+      bannerTextRef.current.classList.remove('visible'); // 기존 'visible' 클래스 제거
+      void bannerTextRef.current.offsetWidth; // 강제로 리플로우를 발생시킵니다
+      bannerTextRef.current.classList.add('visible'); // 'visible' 클래스 다시 추가
     }
-  }, []);
+  }, [location]); // 경로가 변경될 때마다 이 useEffect가 실행됩니다
 
   return (
     <div>

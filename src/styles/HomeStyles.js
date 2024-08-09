@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 // 배너 스타일
 export const Banner = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center; /* 수직 방향 중앙 정렬 */
+  justify-content: center; /* 수평 방향 중앙 정렬 */
   height: 623px;
   background-color: #000000; /* 검정색 배경 */
   color: #ffffff; /* 흰색 글씨 */
@@ -26,7 +26,7 @@ export const BannerText = styled.div`
   /* 애니메이션 초기 상태 설정 */
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 1.5s ease, transform 1.5s ease; /* 지속 시간을 2초로 설정 */
 
   /* 애니메이션을 적용할 상태 클래스 */
   &.visible {
@@ -58,6 +58,7 @@ export const BannerSubheading = styled.p`
 // 로고 이미지 스타일
 export const LogoImage = styled.img`
   height: 700px; /* 적절한 로고 크기로 설정 */
+  margin-left: 20px; /* 텍스트와의 공간 확보 */
 `;
 
 // 버튼 스타일
