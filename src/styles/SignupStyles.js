@@ -13,6 +13,15 @@ const slideIn = keyframes`
   }
 `;
 
+const marquee = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+`;
+
 // 전체 페이지를 좌우로 나누는 컨테이너
 export const SignupContainer = styled.div`
   display: flex;
@@ -72,12 +81,28 @@ export const Slogan = styled.h1`
   animation: ${slideIn} 3s ease-in-out forwards; /* 애니메이션 적용 */
 `;
 
-// Description 설정: 우측 정렬
+// Description 설정
 export const Description = styled.p`
   font-size: 28px;
-  text-align: center; /* 우측 정렬 */
+  text-align: center; /* 중앙 정렬 */
   margin-top: 100px;
-  width: 100%; /* 전체 폭을 사용하여 정렬을 우측으로 설정 */
+  width: 100%; /* 전체 폭을 사용하여 애니메이션 적용 */
+  overflow: hidden; /* 넘치는 부분 숨기기 */
+  white-space: nowrap; /* 텍스트가 줄바꿈 되지 않도록 설정 */
+  position: relative;
+  display: inline-block;
+
+  /* 애니메이션을 위한 텍스트 설정 */
+  &:before {
+    content: attr(data-text);
+    position: absolute;
+    left: 100%;
+    white-space: nowrap;
+    animation: ${marquee} 8s linear infinite; /* 애니메이션 적용 */
+  }
+
+  /* 문구가 끝까지 사라지기 전에 지연을 없애기 위해 기본 애니메이션 설정 */
+  animation: ${marquee} 8s linear infinite;
 `;
 
 // Title 설정
@@ -104,11 +129,15 @@ export const Input = styled.input`
   border-radius: 10px;
   border: 1px solid ${colors.gray};
   background-color: ${colors.white};
-  color: ${colors.gray};
+  color: ${colors.black};
   padding: 0 15px;
   font-size: 16px;
   box-sizing: border-box;
   margin-bottom: 20px;
+
+  &::placeholder {
+    color: ${colors.gray};
+  }
 `;
 
 // 이메일 입력 박스 설정
