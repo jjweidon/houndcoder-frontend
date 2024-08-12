@@ -1,43 +1,19 @@
-// src/pages/Login.js
-import React, { useState } from 'react';
+import React from 'react';
+import { LoginContainer, Logo, Input, Button, KakaoButton, Link, ExtraLink } from '../styles/LoginStyles';
 
-const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // 로그인 로직을 여기에 추가하세요
-    onLogin();
-  };
-
+const Login = () => {
   return (
-    <div>
-      <h1>로그인</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">아이디:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">비밀번호:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">로그인</button>
-      </form>
-    </div>
+    <LoginContainer>
+      <Logo src="/logos/logo_ver.png" alt="로고" />
+      <Input type="email" placeholder="이메일" />
+      <Input type="password" placeholder="비밀번호" />
+      <Button>로그인</Button>
+      <KakaoButton>카카오 로그인</KakaoButton>
+      <ExtraLink>
+        <Link href="/forgot-password">비밀번호 찾기</Link>
+        <Link href="/signup">회원가입</Link>
+      </ExtraLink>
+    </LoginContainer>
   );
 };
 

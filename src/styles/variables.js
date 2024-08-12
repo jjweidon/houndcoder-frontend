@@ -1,4 +1,4 @@
-// src/styles/colors.js
+// src/styles/variables.js
 
 export const colors = {
     mainColor: '#0000C0',
@@ -6,5 +6,6 @@ export const colors = {
     white: '#FFFFFF',
     black: '#000000',
     gray: '#d0d0d0',
+    backGray: '#F0F0F0',
 };
   

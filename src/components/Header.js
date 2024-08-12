@@ -19,8 +19,8 @@ const HeaderComponent = ({ isLoggedIn, onLogout }) => {
       <GlobalStyle />
       <Header>
         <Logo to="/">
-          <LogoImg src="/images/logo1.png" alt="HoundCoder Logo" />
-          <LogoImg src="/images/logo2.png" alt="HoundCoder Text Logo" />
+          <LogoImg src="/logos/logo.png" alt="HoundCoder Logo" />
+          <LogoImg src="/logos/logo_txt.png" alt="HoundCoder Text Logo" />
         </Logo>
         <Nav>
           <NavUl>

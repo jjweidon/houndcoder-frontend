@@ -1,6 +1,6 @@
 // src/components/HeaderStyles.js
 import styled, { createGlobalStyle } from 'styled-components';
-import { colors } from './colors';
+import { colors } from './variables';
 import { Link } from 'react-router-dom';
 
 // 전역 스타일 정의
@@ -15,8 +15,8 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  background-color: ${colors.white}; /* 흰색 배경 */
+  padding: 0px 40px;
+  background-color: ${colors.white};
   border-bottom: 1px solid ${colors.gray};
 
   @media (max-width: 768px) {
@@ -33,9 +33,9 @@ export const Logo = styled(Link)`
 `;
 
 export const LogoImg = styled.img`
-    height: 40px;
-    margin-right: 0px; /* 로고 사이의 여백 */
-    flex-shrink: 0; /* 로고가 줄어들지 않도록 설정 */
+    height: 80px;
+    margin-right: 10px;
+    flex-shrink: 0;
 
     @media (max-width: 768px) {
         &:last-child {
@@ -98,9 +98,9 @@ export const Auth = styled.div`
     align-items: center;
 
     @media (max-width: 768px) {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 `;
 

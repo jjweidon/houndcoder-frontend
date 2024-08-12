@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../styles/colors'; // 색상 값이 담긴 파일
+import { colors } from './variables';
 import { Link } from 'react-router-dom';
 
 // 배너 스타일
@@ -8,8 +8,8 @@ export const Banner = styled.div`
   align-items: center; /* 수직 방향 중앙 정렬 */
   justify-content: center; /* 수평 방향 중앙 정렬 */
   height: 623px;
-  background-color: #000000; /* 검정색 배경 */
-  color: #ffffff; /* 흰색 글씨 */
+  background-color: ${colors.black}; /* 검정색 배경 */
+  color: ${colors.white}; /* 흰색 글씨 */
   padding: 0 100px; /* 좌우 패딩 추가 */
   box-sizing: border-box;
 `;
@@ -21,12 +21,12 @@ export const BannerText = styled.div`
   justify-content: center;
   white-space: nowrap;
   flex: 1;
-  margin-right: 20px; /* 로고와의 공간 확보 */
+  margin-right: 20px;
   
   /* 애니메이션 초기 상태 설정 */
   opacity: 0;
   transform: translateX(-30px);
-  transition: opacity 1.5s ease, transform 1.5s ease; /* 지속 시간을 2초로 설정 */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* 지속 시간을 1.5초로 설정 */
 
   /* 애니메이션을 적용할 상태 클래스 */
   &.visible {
@@ -48,7 +48,7 @@ export const BannerSubheading = styled.p`
   font-size: 62px;
   font-weight: 900;
   margin: 20px 0; /* 상하 여백 추가 */
-  background: linear-gradient(45deg, #4A4AFF 10%, #8BACFF 40%, #FFFFFF 90%); /* 그라데이션 색상 */
+  background: linear-gradient(45deg, ${colors.mainColor} 10%, #8BACFF 40%, ${colors.white} 90%); /* 그라데이션 색상 */
   -webkit-background-clip: text; /* 텍스트에 배경을 적용 */
   -webkit-text-fill-color: transparent; /* 텍스트 색상을 투명하게 만들어 배경이 보이도록 함 */
   text-align: center;
@@ -57,7 +57,7 @@ export const BannerSubheading = styled.p`
 
 // 로고 이미지 스타일
 export const LogoImage = styled.img`
-  height: 700px; /* 적절한 로고 크기로 설정 */
+  height: 220px; /* 적절한 로고 크기로 설정 */
   margin-left: 20px; /* 텍스트와의 공간 확보 */
 `;
 
@@ -77,5 +77,11 @@ export const PlayButton = styled(Link)`
   text-align: center;
   line-height: 80px; /* 버튼 중앙 정렬 */
   margin: 20px auto; /* 중앙 정렬을 위해 마진 추가 */
-  display: block; /* 블록 요소로 만들어 중앙 정렬 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 옅은 그림자 추가 */
+  transition: box-shadow 0.3s ease; /* 그림자 전환 효과 */
+  
+  /* 호버 시 효과 추가 */
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 호버 시 그림자 강조 */
+  }
 `;

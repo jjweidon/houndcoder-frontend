@@ -29,9 +29,9 @@ const Home = () => {
           <BannerHeading>"실력있는 개발자 중에 타자 느린 사람 없다"</BannerHeading>
           <BannerSubheading>코드 타속 향상을 돕는 타이핑 게임</BannerSubheading>
         </BannerText>
-        <LogoImage src="/images/logo2_white.png" alt="HoundCoder Text Logo" />
+        <LogoImage src="/logos/logo_txt_white.png" alt="HoundCoder Text Logo" />
       </Banner>
-      <PlayButton to="/game/practice">게임하기</PlayButton>
+      <PlayButton to="/game">게임하기</PlayButton>
     </div>
   );
 };
