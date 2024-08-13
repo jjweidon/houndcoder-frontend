@@ -1,6 +1,21 @@
 import styled, { keyframes } from 'styled-components';
 import { colors } from './variables';
 
+// 타이핑 효과 애니메이션 정의
+const typing = keyframes`
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+`;
+
+const blink = keyframes`
+  0% { border-right: 2px solid transparent; }
+  100% { border-right: 2px solid ${colors.white}; }
+`;
+
 // 좌에서 우로 스르륵 나타나는 애니메이션 정의
 const slideIn = keyframes`
   0% {
@@ -77,8 +92,10 @@ export const Slogan = styled.h1`
   background: linear-gradient(45deg, #4A4AFF 10%, #8BACFF 40%, #FFFFFF 90%); /* 그라데이션 색상 */
   -webkit-background-clip: text; /* 텍스트에 배경을 적용 */
   -webkit-text-fill-color: transparent; /* 텍스트 색상을 투명하게 만들어 배경이 보이도록 함 */
-  opacity: 0; /* 애니메이션을 시작할 때 투명하게 설정 */
-  animation: ${slideIn} 3s ease-in-out forwards; /* 애니메이션 적용 */
+  white-space: nowrap;
+  overflow: hidden; /* 넘치는 부분 숨기기 */
+  border-right: 2px solid ${colors.black}; /* 커서 효과 */
+  animation: ${typing} 4s steps(40, end), ${blink} 0.75s step-end infinite; /* 애니메이션 적용 */
 `;
 
 // Description 설정
@@ -109,6 +126,7 @@ export const Description = styled.p`
 export const Title = styled.h1`
   font-size: 24px;
   margin-top: -100px;
+  margin-bottom: 50px;
 `;
 
 export const InputContainer = styled.div`
@@ -127,7 +145,7 @@ export const Input = styled.input`
   height: 50px;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid ${colors.gray};
+  border: 2px solid ${colors.gray};
   background-color: ${colors.white};
   color: ${colors.black};
   padding: 0 15px;
