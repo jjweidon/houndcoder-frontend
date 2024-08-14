@@ -14,6 +14,7 @@ import MyPage from './pages/MyPage';
 import GameSelect from './pages/GameSelect';
 import PvpGame from './pages/PvpGame';
 import { GlobalStyle, AppContainer } from './styles/GlobalStyles';
+import PrivateRoute from './components/PrivateRoute';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -25,21 +26,21 @@ const App = () => {
     <Router>
       <GlobalStyle />
       <AppContainer>
-      <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/game" element={<GameSelect />} />
-          <Route path="/game/practice" element={<PracticeGame />} />
-          <Route path="/game/ranking" element={<RankingGame />} />
-          <Route path="/game/pvp" element={<PvpGame />} />
-          <Route path="/ranking" element={<CoderRanking />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/mypage" element={<MyPage />} />
-        </Routes>
-      </main>
+        <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/game" element={<PrivateRoute element={<GameSelect />} isLoggedIn={isLoggedIn} />} />
+            <Route path="/game/practice" element={<PrivateRoute element={<PracticeGame />} isLoggedIn={isLoggedIn} />} />
+            <Route path="/game/ranking" element={<PrivateRoute element={<RankingGame />} isLoggedIn={isLoggedIn} />} />
+            <Route path="/game/pvp" element={<PrivateRoute element={<PvpGame />} isLoggedIn={isLoggedIn} />} />
+            <Route path="/ranking" element={<PrivateRoute element={<CoderRanking />} isLoggedIn={isLoggedIn} />} />
+            <Route path="/shop" element={<PrivateRoute element={<Shop />} isLoggedIn={isLoggedIn} />} />
+            <Route path="/mypage" element={<PrivateRoute element={<MyPage />} isLoggedIn={isLoggedIn} />} />
+          </Routes>
+        </main>
       </AppContainer>
       <Footer />
     </Router>

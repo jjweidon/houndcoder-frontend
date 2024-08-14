@@ -1,6 +1,19 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { colors } from './variables';
 import { Link } from 'react-router-dom';
+
+// 통통 튀는 애니메이션 정의
+const bounce = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+`;
 
 // 배너 스타일
 export const Banner = styled.div`
@@ -76,9 +89,12 @@ export const PlayButton = styled(Link)`
   text-decoration: none; /* 링크 밑줄 제거 */
   text-align: center;
   line-height: 80px; /* 버튼 중앙 정렬 */
-  margin: 20px auto; /* 중앙 정렬을 위해 마진 추가 */
+  margin: 40px auto; /* 중앙 정렬을 위해 마진 추가 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 옅은 그림자 추가 */
   transition: box-shadow 0.3s ease; /* 그림자 전환 효과 */
+
+  /* 애니메이션 적용 */
+  animation: ${bounce} 2s infinite;
   
   /* 호버 시 효과 추가 */
   &:hover {
