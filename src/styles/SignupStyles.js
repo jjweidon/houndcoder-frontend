@@ -130,8 +130,9 @@ export const Title = styled.h1`
 `;
 
 export const InputContainer = styled.div`
-  width: 400px;
-`
+  width: 400px
+`;
+
 
 // 이메일 입력 박스와 인증 버튼을 포함하는 컨테이너 설정
 export const EmailContainer = styled.div`
@@ -140,22 +141,40 @@ export const EmailContainer = styled.div`
   width: 100%;
 `;
 
+// 입력 박스와 아이콘을 감싸는 컨테이너 설정
+export const PasswordWrapper = styled.div`
+  display: flex; /* Flexbox를 사용하여 자식 요소 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  position: relative; /* 자식 요소의 절대 위치를 기준으로 설정 */
+  width: 100%;
+`;
+
 // 입력 박스 설정
 export const Input = styled.input`
+  flex: 1; /* 입력 박스가 가능한 모든 공간을 차지하도록 설정 */
   height: 50px;
-  width: 100%;
   border-radius: 10px;
   border: 2px solid ${colors.gray};
   background-color: ${colors.white};
   color: ${colors.black};
-  padding: 0 15px;
   font-size: 16px;
   box-sizing: border-box;
+  padding-right: 40px; /* 아이콘 공간을 고려하여 오른쪽 여백 설정 */
   margin-bottom: 20px;
+  padding: 0px 20px;
 
   &::placeholder {
     color: ${colors.gray};
   }
+`;
+
+export const IconWrapper = styled.div`
+  color: ${colors.gray};
+  font-size: 20px; /* 아이콘 크기 조정 */
+  cursor: pointer;
+  position: absolute; /* 절대 위치를 사용하여 Input 내부에서 위치 설정 */
+  right: 20px; /* 입력 박스의 오른쪽 여백 */
+  margin-bottom: 20px;
 `;
 
 // 이메일 입력 박스 설정
@@ -204,7 +223,7 @@ export const KakaoButton = styled(Button)`
 `;
 
 // 추가 링크 컨테이너 설정
-export const ExtraLink = styled.div`
+export const LoginLink = styled.div`
   display: flex;
   align-items: center;
   margin-top: 20px;
