@@ -1,6 +1,19 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { colors } from './variables';
 import { Link } from 'react-router-dom';
+
+// 통통 튀는 애니메이션 정의
+const bounce = keyframes`
+  0%, 20%, 50%, 75%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+`;
 
 // 배너 스타일
 export const Banner = styled.div`
@@ -48,7 +61,7 @@ export const BannerSubheading = styled.p`
   font-size: 62px;
   font-weight: 900;
   margin: 20px 0; /* 상하 여백 추가 */
-  background: linear-gradient(45deg, ${colors.mainColor} 10%, #8BACFF 40%, ${colors.white} 90%); /* 그라데이션 색상 */
+  background: linear-gradient(45deg, ${colors.main} 10%, #8BACFF 40%, ${colors.white} 90%); /* 그라데이션 색상 */
   -webkit-background-clip: text; /* 텍스트에 배경을 적용 */
   -webkit-text-fill-color: transparent; /* 텍스트 색상을 투명하게 만들어 배경이 보이도록 함 */
   text-align: center;
@@ -69,16 +82,19 @@ export const PlayButton = styled(Link)`
   width: 250px;
   height: 80px;
   border-radius: 15px;
-  background-color: ${colors.mainColor}; /* mainColor 사용 */
+  background-color: ${colors.main}; /* mainColor 사용 */
   color: ${colors.white}; /* 흰색 글씨 */
   font-size: 36px;
   font-weight: 600;
   text-decoration: none; /* 링크 밑줄 제거 */
   text-align: center;
   line-height: 80px; /* 버튼 중앙 정렬 */
-  margin: 20px auto; /* 중앙 정렬을 위해 마진 추가 */
+  margin: 40px auto; /* 중앙 정렬을 위해 마진 추가 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 옅은 그림자 추가 */
   transition: box-shadow 0.3s ease; /* 그림자 전환 효과 */
+
+  /* 애니메이션 적용 */
+  animation: ${bounce} 2s infinite;
   
   /* 호버 시 효과 추가 */
   &:hover {

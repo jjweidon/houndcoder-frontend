@@ -1,7 +1,8 @@
 // src/styles/variables.js
 
 export const colors = {
-    mainColor: '#0000C0',
+    error: '#FF0000',
+    main: '#0000C0',
     secondaryColor: '#9D9D9D',
     white: '#FFFFFF',
     black: '#000000',

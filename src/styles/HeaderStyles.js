@@ -106,7 +106,7 @@ export const Auth = styled.div`
 
 export const AuthButton = styled.button`
     color: ${colors.white};
-    background: ${colors.mainColor};
+    background: ${colors.main};
     font-weight: 900;
     border: none;
     cursor: pointer;

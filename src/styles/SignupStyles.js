@@ -131,7 +131,11 @@ export const Title = styled.h1`
 
 export const InputContainer = styled.div`
   width: 400px;
-`
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+`;
+
 
 // 이메일 입력 박스와 인증 버튼을 포함하는 컨테이너 설정
 export const EmailContainer = styled.div`
@@ -140,22 +144,55 @@ export const EmailContainer = styled.div`
   width: 100%;
 `;
 
+// 입력 박스와 아이콘을 감싸는 컨테이너 설정
+export const PwWrapper = styled.div`
+  display: flex; /* Flexbox를 사용하여 자식 요소 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  position: relative; /* 자식 요소의 절대 위치를 기준으로 설정 */
+  width: 100%;
+`;
+
+export const ErrorMessage = styled.div`
+  color: ${colors.error};
+  font-size: 11px;
+  margin-top: -15px;
+`;
+
 // 입력 박스 설정
 export const Input = styled.input`
+  flex: 1; /* 입력 박스가 가능한 모든 공간을 차지하도록 설정 */
   height: 50px;
-  width: 100%;
   border-radius: 10px;
   border: 2px solid ${colors.gray};
   background-color: ${colors.white};
   color: ${colors.black};
-  padding: 0 15px;
   font-size: 16px;
   box-sizing: border-box;
-  margin-bottom: 20px;
+  padding-right: 40px; /* 아이콘 공간을 고려하여 오른쪽 여백 설정 */
+  padding: 0px 20px;
 
   &::placeholder {
     color: ${colors.gray};
   }
+
+  &:focus {
+    border-color: ${colors.main}; // 포커스 시 테두리 색상 설정
+    outline: none; // 기본 아웃라인 제거
+    // box-shadow: 0 0 5px ${colors.main}; // 선택 시 약간의 그림자 효과 추가
+  }
+
+  ${props => props.onError && `
+    border-color: ${colors.errorColor}; // 에러 발생 시 테두리 색상
+    box-shadow: 0 0 5px ${colors.errorColor}; // 에러 발생 시 그림자 효과
+  `}
+`;
+
+export const IconWrapper = styled.div`
+  color: ${colors.gray};
+  font-size: 20px; /* 아이콘 크기 조정 */
+  cursor: pointer;
+  position: absolute; /* 절대 위치를 사용하여 Input 내부에서 위치 설정 */
+  right: 20px; /* 입력 박스의 오른쪽 여백 */
 `;
 
 // 이메일 입력 박스 설정
@@ -175,7 +212,6 @@ export const VerifyButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: 16px;
-  margin-bottom: 20px;
 `;
 
 // 버튼 설정
@@ -183,13 +219,13 @@ export const Button = styled.button`
   width: 400px;
   height: 50px;
   border-radius: 7px;
-  background-color: ${colors.mainColor};
+  background-color: ${colors.main};
   color: ${colors.white};
   font-weight: 900;
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+;
   font-size: 16px;
 
   &:hover {
@@ -204,7 +240,7 @@ export const KakaoButton = styled(Button)`
 `;
 
 // 추가 링크 컨테이너 설정
-export const ExtraLink = styled.div`
+export const LoginLink = styled.div`
   display: flex;
   align-items: center;
   margin-top: 20px;
@@ -212,7 +248,7 @@ export const ExtraLink = styled.div`
 
 // 링크 설정
 export const Link = styled.a`
-  color: ${colors.mainColor};
+  color: ${colors.main};
   text-decoration: none;
   font-size: 14px;
   margin-left: 10px;
