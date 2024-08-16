@@ -10,7 +10,7 @@ import {
   Slogan,
   Description, 
   InputContainer, 
-  PasswordWrapper, 
+  PwWrapper, 
   ErrorMessage, 
   Input, 
   IconWrapper, 
@@ -97,20 +97,20 @@ const Signup = () => {
             <VerifyButton onClick={handleVerifyEmail}>인증 요청</VerifyButton>
           </EmailContainer>
           {emailError && <ErrorMessage>{emailError}</ErrorMessage>}
-          <PasswordWrapper>
+          <PwWrapper>
             <Input 
               type={showPassword ? 'text' : 'password'} 
               placeholder="비밀번호" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              onBlur={handlePasswordBlur} // 입력 필드를 벗어날 때 유효성 검사
+              onBlur={handlePasswordBlur}
             />
             <IconWrapper onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <IoMdEyeOff /> : <IoMdEye />}
             </IconWrapper>
-          </PasswordWrapper>
+          </PwWrapper>
           {passwordError && <ErrorMessage>{passwordError}</ErrorMessage>}
-          <PasswordWrapper>
+          <PwWrapper>
             <Input 
               type={showConfirmPassword ? 'text' : 'password'} 
               placeholder="비밀번호 확인" 
@@ -121,7 +121,7 @@ const Signup = () => {
             <IconWrapper onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
               {showConfirmPassword ? <IoMdEyeOff /> : <IoMdEye />}
             </IconWrapper>
-          </PasswordWrapper>
+          </PwWrapper>
           {confirmPasswordError && <ErrorMessage>{confirmPasswordError}</ErrorMessage>}
         <Button>회원가입</Button>
         <KakaoButton>카카오로 시작하기</KakaoButton>

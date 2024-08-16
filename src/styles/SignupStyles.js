@@ -145,7 +145,7 @@ export const EmailContainer = styled.div`
 `;
 
 // 입력 박스와 아이콘을 감싸는 컨테이너 설정
-export const PasswordWrapper = styled.div`
+export const PwWrapper = styled.div`
   display: flex; /* Flexbox를 사용하여 자식 요소 정렬 */
   align-items: center; /* 수직 중앙 정렬 */
   position: relative; /* 자식 요소의 절대 위치를 기준으로 설정 */
