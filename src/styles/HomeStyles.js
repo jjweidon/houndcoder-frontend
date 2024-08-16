@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 // 통통 튀는 애니메이션 정의
 const bounce = keyframes`
-  0%, 20%, 50%, 80%, 100% {
+  0%, 20%, 50%, 75%, 100% {
     transform: translateY(0);
   }
   40% {
@@ -61,7 +61,7 @@ export const BannerSubheading = styled.p`
   font-size: 62px;
   font-weight: 900;
   margin: 20px 0; /* 상하 여백 추가 */
-  background: linear-gradient(45deg, ${colors.mainColor} 10%, #8BACFF 40%, ${colors.white} 90%); /* 그라데이션 색상 */
+  background: linear-gradient(45deg, ${colors.main} 10%, #8BACFF 40%, ${colors.white} 90%); /* 그라데이션 색상 */
   -webkit-background-clip: text; /* 텍스트에 배경을 적용 */
   -webkit-text-fill-color: transparent; /* 텍스트 색상을 투명하게 만들어 배경이 보이도록 함 */
   text-align: center;
@@ -82,7 +82,7 @@ export const PlayButton = styled(Link)`
   width: 250px;
   height: 80px;
   border-radius: 15px;
-  background-color: ${colors.mainColor}; /* mainColor 사용 */
+  background-color: ${colors.main}; /* mainColor 사용 */
   color: ${colors.white}; /* 흰색 글씨 */
   font-size: 36px;
   font-weight: 600;

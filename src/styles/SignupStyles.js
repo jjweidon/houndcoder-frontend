@@ -130,7 +130,10 @@ export const Title = styled.h1`
 `;
 
 export const InputContainer = styled.div`
-  width: 400px
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
 `;
 
 
@@ -149,6 +152,12 @@ export const PasswordWrapper = styled.div`
   width: 100%;
 `;
 
+export const ErrorMessage = styled.div`
+  color: ${colors.error};
+  font-size: 11px;
+  margin-top: -10px;
+`;
+
 // 입력 박스 설정
 export const Input = styled.input`
   flex: 1; /* 입력 박스가 가능한 모든 공간을 차지하도록 설정 */
@@ -160,12 +169,22 @@ export const Input = styled.input`
   font-size: 16px;
   box-sizing: border-box;
   padding-right: 40px; /* 아이콘 공간을 고려하여 오른쪽 여백 설정 */
-  margin-bottom: 20px;
   padding: 0px 20px;
 
   &::placeholder {
     color: ${colors.gray};
   }
+
+  &:focus {
+    border-color: ${colors.main}; // 포커스 시 테두리 색상 설정
+    outline: none; // 기본 아웃라인 제거
+    // box-shadow: 0 0 5px ${colors.main}; // 선택 시 약간의 그림자 효과 추가
+  }
+
+  ${props => props.onError && `
+    border-color: ${colors.errorColor}; // 에러 발생 시 테두리 색상
+    box-shadow: 0 0 5px ${colors.errorColor}; // 에러 발생 시 그림자 효과
+  `}
 `;
 
 export const IconWrapper = styled.div`
@@ -174,7 +193,6 @@ export const IconWrapper = styled.div`
   cursor: pointer;
   position: absolute; /* 절대 위치를 사용하여 Input 내부에서 위치 설정 */
   right: 20px; /* 입력 박스의 오른쪽 여백 */
-  margin-bottom: 20px;
 `;
 
 // 이메일 입력 박스 설정
@@ -194,7 +212,6 @@ export const VerifyButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: 16px;
-  margin-bottom: 20px;
 `;
 
 // 버튼 설정
@@ -202,13 +219,13 @@ export const Button = styled.button`
   width: 400px;
   height: 50px;
   border-radius: 7px;
-  background-color: ${colors.mainColor};
+  background-color: ${colors.main};
   color: ${colors.white};
   font-weight: 900;
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+;
   font-size: 16px;
 
   &:hover {
@@ -231,7 +248,7 @@ export const LoginLink = styled.div`
 
 // 링크 설정
 export const Link = styled.a`
-  color: ${colors.mainColor};
+  color: ${colors.main};
   text-decoration: none;
   font-size: 14px;
   margin-left: 10px;
