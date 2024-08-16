@@ -155,7 +155,7 @@ export const PasswordWrapper = styled.div`
 export const ErrorMessage = styled.div`
   color: ${colors.error};
   font-size: 11px;
-  margin-top: -10px;
+  margin-top: -15px;
 `;
 
 // 입력 박스 설정

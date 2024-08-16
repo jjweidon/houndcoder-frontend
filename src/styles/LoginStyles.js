@@ -33,7 +33,7 @@ export const Button = styled.button`
   width: 400px;
   height: 50px;
   border-radius: 7px;
-  background-color: ${colors.mainColor};
+  background-color: ${colors.main};
   color: ${colors.white};
   font-weight: 900;
   border: none;
